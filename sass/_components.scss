@@ -13,6 +13,12 @@
     align-items: center;
     justify-content: center;
 
+    @media only screen and (max-width:$bp-smallest) {
+        order:1;
+        flex-basis:100%;
+        background-color: var(--color-grey-light-2);
+    }
+
     &__input {
         font-family: inherit;
         font-size: inherit;
@@ -29,6 +35,10 @@
             outline:none;
             width:100%;
             background-color: var(--color-grey-light-3);
+
+            @media only screen and (max-width:$bp-smallest) {
+                background-color: var(--color-grey-light-2);
+            }
         }
 
         &::placeholder {
@@ -39,6 +49,10 @@
 
     &__input:focus + &__button {
         background-color: var(--color-grey-light-3);
+
+        @media only screen and (max-width:$bp-smallest) {
+            background-color: var(--color-grey-light-2);
+        }
     }
 
     &__button {
@@ -121,11 +135,23 @@
     list-style: none;
     margin-top: 3.5rem;
 
+    @media only screen and (max-width:$bp-medium) {
+        display: flex;
+        margin:0;
+    }
+
     &__item {
         position: relative;
         &:not(:last-child) {
             margin-bottom:.5rem;
+            @media only screen and (max-width:$bp-medium) {
+                margin:0;
+            }
         }
+        @media only screen and (max-width:$bp-medium) {
+            flex: 1;
+        }
+
     }
 
     &__item::before {
@@ -165,6 +191,16 @@
         padding:1.5rem 3rem;
         position: relative;
         z-index: 10;
+
+        @media only screen and (max-width:$bp-medium) {
+            justify-content: center;
+            padding:2rem;
+        }
+
+        @media only screen and (max-width:$bp-small) {
+           flex-direction: column;
+           padding:1.5rem .5rem;
+        }
     }
 
     &__icon {
@@ -172,6 +208,14 @@
         height:1.75rem;
         margin-right: 2rem;
         fill: currentColor;
+
+        @media only screen and (max-width:$bp-small) {
+            margin-right: 0;
+            width:1.5rem;
+            height: 1.5rem;
+            margin-bottom: .7rem;
+        }
+
     }
 }
 
@@ -183,6 +227,10 @@
     color:var(--color-grey-light-4);
     text-align: center;
     padding: 2.5rem;
+
+    @media only screen and (max-width:$bp-medium) {
+        display: none;
+    }
 }
 
 
@@ -217,6 +265,10 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         padding:1.5rem 3rem;
+        @media only screen and (max-width:$bp-medium) {
+           font-size: 1.8rem;
+           padding:1.25rem 2rem;
+        }
     }
 
     &__stars {
@@ -251,17 +303,28 @@
         justify-content: center;
         align-items: center;
         padding:0 2.25rem;
+
+        @media only screen and (max-width:$bp-medium) {
+            padding:0 1.5rem;
+        }
+
     }
 
     &__rating-average {
         font-size: 2.25rem;
         font-weight: 300;
         margin-bottom: -3px;
+        @media only screen and (max-width:$bp-medium) {
+            font-size: 1.8rem;
+        }
     }
 
     &__rating-count {
         font-size: .9rem;
         text-transform: uppercase;
+        @media only screen and (max-width:$bp-medium) {
+            font-size: .5rem;
+        }
     }
 }
 
@@ -349,15 +412,18 @@
         margin-right: .7rem;
 
         //Older browsers
-        //background-image: url(../img/chevron-thin-right.svg);
-        //background-size: cover;
+        background-image: url(../img/chevron-thin-right.svg);
+        background-size: cover;
 
         //News browsers - masks
-        background-color: var(--color-primary);
-        -webkit-mask-image:url(../img/chevron-thin-right.svg);
-        -webkit-mask-size:cover;
-        mask-size:cover;
-        mask-image:url(../img/chevron-thin-right.svg);
+        @supports ( -webkit-mask-image:url()) or ( mask-image:url()) {
+            background-color: var(--color-primary);
+            -webkit-mask-image:url(../img/chevron-thin-right.svg);
+            -webkit-mask-size:cover;
+            mask-size:cover;
+            mask-image:url(../img/chevron-thin-right.svg);
+            background-image: none;
+        }
     }
 }
 
@@ -376,7 +442,7 @@
     }
 
     &__friends {
-
+        display: flex;
     }
 
     &__photo {
@@ -386,7 +452,7 @@
         border:3px solid #fff;
         box-sizing:content-box;
         &:not(:last-child) {
-            margin-right: -1.5rem;
+            margin-right: -2rem;
         }
     }
 }
@@ -401,6 +467,11 @@
     margin-bottom: 3.5rem;
     position: relative;
     overflow: hidden;
+
+    @media only screen and (max-width:$bp-medium) {
+       padding:2rem;
+       margin-bottom: 3rem;
+    }
 
     &__text {
         margin-bottom: 2rem;
@@ -463,6 +534,10 @@
 .cta {
     padding:3.5rem 0;
     text-align: center;
+
+    @media only screen and (max-width:$bp-medium) {
+        padding:2.5rem 0;
+    }
 
     &__book-now {
         text-transform: uppercase;
