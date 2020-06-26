@@ -241,10 +241,9 @@ body {
       width: 300%; }
     .user-nav__modal--settings {
       width: 100%; }
-  .user-nav__user:hover > .user-nav__modal--settings {
+  .user-nav__user:hover > .user-nav__modal,
+  .user-nav__icon-box--notification:hover .user-nav__modal {
     display: block; }
-  .user-nav__icon-box--notification:hover > .user-nav__modal--messages {
-    display: none; }
 
 /**************************/
 /*  SIDE NAVIGATION  */

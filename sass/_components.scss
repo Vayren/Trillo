@@ -130,14 +130,14 @@
     }
 
     &__modal {
-        height: 0rem;
+        height: 17rem;
         background-color: #fff;
         border:var(--line);
         position: absolute;
         top:100%;
         left:0;
         z-index: 1000;
-        visibility: hidden;
+        display:none;
         transition: all .3s;
 
         &--messages {
@@ -147,6 +147,11 @@
         &--settings {
             width: 100%;
         }
+    }
+
+    &__user:hover > &__modal,
+    &__icon-box--notification:hover &__modal {
+        display: block;
     }
 
 }
